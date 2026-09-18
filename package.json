@@ -1,0 +1,14 @@
+{
+  "name": "pylon-release-tagger",
+  "version": "1.0.0",
+  "description": "Linear webhook → Pylon issue tagger for release and bug-as-designed flows",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
