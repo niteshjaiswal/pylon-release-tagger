@@ -78,14 +78,16 @@ curl -X POST http://localhost:3000/webhook/linear \
 
 ## Deployment
 
-**Recommended: AWS
+**7shifts internal infra:** Hand this repo + the 3 env vars to eng. ~1–2 hours to deploy. Linear ticket: [CXA-147](https://linear.app/7shifts/issue/CXA-147)
 
-1. Push this repo to GitHub
-2. Connect the repo on AWS
-3. Set the 3 environment variables (`PYLON_API_TOKEN`, `LINEAR_WEBHOOK_SECRET`, `PYLON_REGION`)
-4. Copy the deployed URL → paste into Linear webhook settings
+The service is a standard Node.js HTTP server — deploy it wherever 7shifts hosts internal services (AWS, etc.). Once deployed:
+1. Copy the public URL
+2. Go to Linear → Settings → API → Webhooks → Create webhook
+3. Paste the URL as `https://your-url/webhook/linear`
+4. Subscribe to: **Project** (state changes) + **IssueLabel** (label applied)
+5. Copy the signing secret → set as `LINEAR_WEBHOOK_SECRET` env var
 
-**AWS Lambda:** Export `handleLinearWebhook` and adapt the HTTP wrapper to a Lambda handler. The core logic is unchanged.
+**AWS Lambda alternative:** Export `handleLinearWebhook` and wrap in a Lambda handler. Core logic is unchanged.
 
 **7shifts internal infra:** Hand this repo + the env vars to eng. ~1–2 hours to deploy. Linear ticket: [CXA-147](https://linear.app/7shifts/issue/CXA-147)
 
