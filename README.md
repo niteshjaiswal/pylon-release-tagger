@@ -78,10 +78,10 @@ curl -X POST http://localhost:3000/webhook/linear \
 
 ## Deployment
 
-**Recommended: Railway or Render** (no backend experience required)
+**Recommended: AWS
 
 1. Push this repo to GitHub
-2. Connect the repo on [railway.app](https://railway.app) or [render.com](https://render.com)
+2. Connect the repo on AWS
 3. Set the 3 environment variables (`PYLON_API_TOKEN`, `LINEAR_WEBHOOK_SECRET`, `PYLON_REGION`)
 4. Copy the deployed URL → paste into Linear webhook settings
 
